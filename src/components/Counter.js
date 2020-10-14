@@ -50,16 +50,20 @@ import React, {useState} from 'react'; /* STEP 0 */
 
 export default function Counter() {
   /* STEP 1 */
+  const ogCount = 0
   const [count, setcount] = useState(0)
 
   const increment = () => {
     /* STEP 4 */
+    setcount(count + 1)
   };
   const decrement = () => {
     /* STEP 5 */
+    setcount(count - 1)
   };
   const reset = () => {
     /* STEP 6 */
+    setcount(ogCount)
   };
 
   const style = {
@@ -74,7 +78,7 @@ export default function Counter() {
     <div className='widget-counter container'>
       <h2>Counter</h2>
       <div id='count' style={style}>
-        Number 0 is even {/* STEP 3 */}
+        Number {count} is even { count%2 == 0 ? 'even' : 'odd'}
       </div>
       <div>
         <button id='increment' onClick={increment}>Increment</button>
